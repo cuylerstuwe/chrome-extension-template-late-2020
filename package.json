@@ -1,0 +1,38 @@
+{
+  "author": "Cuyler Stuwe",
+  "name": "minimal-chrome-extension-boilerplate",
+  "longName": "Minimal Chrome Extension Boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "license": "Private",
+  "main": "index.js",
+  "scripts": {
+    "copy-verbatim-directories": "mkdir -p ./dist/icons && cd ./src && cp -R icons ../dist/",
+    "copy-verbatim-files": "cd ./src && cp ./background/background.html ./popup/popup.html ../dist/",
+    "render-manifest-from-package-json": "cd ./src && node manifest",
+    "build": "npx webpack && gulp copy-verbatim-directories && npm run copy-verbatim-files && npm run render-manifest-from-package-json",
+    "localhost-redux-debugger": "redux-devtools --hostname=localhost --port=9001",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
+    "@types/chrome": "0.0.88",
+    "@types/jest": "^24.0.16",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "gulp": "^4.0.2",
+    "jest": "^24.8.0",
+    "source-map-loader": "^0.2.4",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "redux": "^4.0.5",
+    "redux-devtools-cli": "0.0.1-1",
+    "redux-logger": "^3.0.6",
+    "remote-redux-devtools": "^0.5.16"
+  }
+}
