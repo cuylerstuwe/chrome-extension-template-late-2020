@@ -11,6 +11,7 @@ config = {
     LOCALHOST_REMOTE_REDUX_DEVTOOLS_PORT: 9001,
     ENDPOINTS: {
     },
+    GLOBAL_BACKGROUND_LISTENER_LOOPBACK_NAME: "globalListener"
 };
 
 module.exports = config;
