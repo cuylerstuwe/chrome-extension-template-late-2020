@@ -3,7 +3,7 @@ const messageType = messageTypes.NOOP;
 
 export default ({
 
-    messageListener: ({store}) => argsObj => {
+    messageListener: ({store}) => async argsObj => {
 
         store.dispatch({
             type: messageType,
