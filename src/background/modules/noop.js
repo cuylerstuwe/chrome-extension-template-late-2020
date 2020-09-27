@@ -1,13 +1,12 @@
 import messageTypes from "../messageTypes";
+const messageType = messageTypes.NOOP;
 
 export default ({
-
-    messageType: messageTypes.NOOP,
 
     messageListener: ({store}) => argsObj => {
 
         store.dispatch({
-            type: messageTypes.NOOP,
+            type: messageType,
         });
 
         return store.getState();
@@ -16,6 +15,8 @@ export default ({
 
     reducer: ({state, action}) => ({
         ...state
-    })
+    }),
+
+    messageType
 
 });
