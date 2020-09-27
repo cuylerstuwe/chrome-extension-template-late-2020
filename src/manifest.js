@@ -10,6 +10,13 @@ const manifest = {
     description: packageJson.description || "package.json is missing a description",
     version: packageJson.version,
 
+    icons: {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "64": "icons/icon64.png"
+    },
+
     browser_action: {
         default_icon: {
             "16": "icons/icon16.png",
