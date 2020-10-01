@@ -1,11 +1,9 @@
 import "../utils/startedLog";
-import commonModules from "./modules/common/commonModules";
 import generateStateAndMessagePumpFrom from "../utils/generateStateAndMessagePumpFrom";
-import commonInitialState from "./modules/common/commonInitialState";
 import config from "../config";
-import urlMatchingPageConfigurations from "./urlMatchingPageConfigurations";
+import { commonModules, commonInitialState, urlMatchedPageConfigs } from "./contentConfig";
 
-const urlMatchedPageConfiguration = urlMatchingPageConfigurations.find(urlMatchingPageConfiguration => {
+const urlMatchedPageConfiguration = urlMatchedPageConfigs.find(urlMatchingPageConfiguration => {
     const { urlMatcher } = urlMatchingPageConfiguration;
     return !!(window.location.href.match(urlMatcher));
 }) || null;
