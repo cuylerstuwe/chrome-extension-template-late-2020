@@ -33,7 +33,7 @@ async function main() {
         )
     });
 
-    const pageStateAndMessagePump = generateStateAndMessagePumpFrom({modulesArray: modules, initialState});
+    const pageStateAndMessagePump = await generateStateAndMessagePumpFrom({modulesArray: modules, initialState});
 
     const messageTypesWatched = modules?.map(module => module.messageType) || [];
 
