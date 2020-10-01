@@ -1,4 +1,4 @@
-import messageTypes from "../messageTypes";
+import messageTypes from "../../../messageTypes";
 const messageType = messageTypes.NOOP;
 
 export default ({
