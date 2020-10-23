@@ -30,6 +30,7 @@
     "webpack-cli": "^3.3.6"
   },
   "dependencies": {
+    "gulp-cli": "^2.3.0",
     "redux": "^4.0.5",
     "redux-devtools-cli": "0.0.1-1",
     "redux-logger": "^3.0.6",
