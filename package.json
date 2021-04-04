@@ -12,6 +12,8 @@
     "render-manifest-from-package-json": "cd ./src && node manifest",
     "build": "npx webpack && gulp copy-verbatim-directories && npm run copy-verbatim-files && npm run render-manifest-from-package-json",
     "localhost-redux-debugger": "redux-devtools --hostname=localhost --port=9001",
+    "generate-private-key": "2>/dev/null openssl genrsa 2048 | openssl pkcs8 -topk8 -nocrypt -out private-key.pem",
+    "generate-public-key-to-clipboard": "2>/dev/null openssl rsa -in private-key.pem -pubout -outform DER | openssl base64 -A | pbcopy",
     "test": "jest"
   },
   "devDependencies": {
