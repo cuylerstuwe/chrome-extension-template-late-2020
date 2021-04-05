@@ -10,10 +10,14 @@
     "copy-verbatim-directories": "mkdir -p ./dist/icons && cd ./src && cp -R icons ../dist/",
     "copy-verbatim-files": "cd ./src && cp ./background/background.html ./popup/popup.html ../dist/",
     "render-manifest-from-package-json": "cd ./src && node manifest",
-    "build": "npx webpack && gulp copy-verbatim-directories && npm run copy-verbatim-files && npm run render-manifest-from-package-json",
+    "build:local-dev": "BUILD_ENV=local-dev rm -rf dist; npx webpack && gulp copy-verbatim-directories && npm run copy-verbatim-files && BUILD_ENV=local-dev npm run render-manifest-from-package-json",
+    "build:updated-deploy": "BUILD_ENV=updated-deploy rm -rf dist; npx webpack && gulp copy-verbatim-directories && npm run copy-verbatim-files && BUILD_ENV=updated-deploy npm run render-manifest-from-package-json",
+    "build:initial-deploy": "BUILD_ENV=initial-deploy rm -rf dist; npx webpack && gulp copy-verbatim-directories && npm run copy-verbatim-files && BUILD_ENV=initial-deploy npm run render-manifest-from-package-json && cp private-key.pem dist/key.pem",
     "localhost-redux-debugger": "redux-devtools --hostname=localhost --port=9001",
     "generate-private-key": "2>/dev/null openssl genrsa 2048 | openssl pkcs8 -topk8 -nocrypt -out private-key.pem",
-    "generate-public-key-to-clipboard": "2>/dev/null openssl rsa -in private-key.pem -pubout -outform DER | openssl base64 -A | pbcopy",
+    "generate-derived-public-key": "2>/dev/null openssl rsa -in private-key.pem -pubout -outform DER | openssl base64 -A -out public-key-base64.txt",
+    "generate-key-pair": "npm run generate-private-key && npm run generate-derived-public-key",
+    "copy-private-key-to-dist": "cp private-key-upload.pem dist/key.pem",
     "test": "jest"
   },
   "devDependencies": {

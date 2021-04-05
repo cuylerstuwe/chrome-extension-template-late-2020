@@ -3,6 +3,10 @@ const fs = require("fs");
 const packageJsonText = fs.readFileSync("../package.json");
 const packageJson = JSON.parse(packageJsonText);
 
+const localPublicKeyText = fs.readFileSync("../public-key-base64.txt", "utf8");
+console.log({localPublicKeyText});
+console.log({BUILD_ENV: process.env.BUILD_ENV});
+
 const iconSizes = [16, 32, 48, 64];
 
 const iconDirectory = "icons";
@@ -16,6 +20,13 @@ const iconsObj = Object.fromEntries(
 );
 
 const manifest = {
+
+    key: (
+        process.env.BUILD_ENV === "local-dev"
+            ? localPublicKeyText
+            : undefined
+    ),
+
 
     manifest_version: 2,
     name: packageJson.longName || "package.json is missing a name",
