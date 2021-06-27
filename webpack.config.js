@@ -1,3 +1,10 @@
+const webpack = require("webpack");
+
+const environmentVariablesToDynamicallyReference = [
+    "BUILD_ENV",
+    "NODE_ENV",
+];
+
 module.exports = {
     mode: "development",
     devtool: "inline-source-map",
@@ -15,5 +22,8 @@ module.exports = {
             ],
             enforce: "pre"
         }]
-    }
+    },
+    plugins: [
+        new webpack.EnvironmentPlugin(environmentVariablesToDynamicallyReference)
+    ]
 };

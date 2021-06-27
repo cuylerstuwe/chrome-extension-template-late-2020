@@ -22,3 +22,5 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     });
     return true;
 });
+
+console.log("Runtime environment:", { BUILD_ENV: process.env.BUILD_ENV, NODE_ENV: process.env.NODE_ENV });

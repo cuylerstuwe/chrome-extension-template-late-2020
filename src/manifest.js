@@ -5,7 +5,7 @@ const packageJson = JSON.parse(packageJsonText);
 
 const localPublicKeyText = fs.readFileSync("../public-key-base64.txt", "utf8");
 console.log({localPublicKeyText});
-console.log({BUILD_ENV: process.env.BUILD_ENV});
+console.log("Build environment:", {BUILD_ENV: process.env.BUILD_ENV, NODE_ENV: process.env.NODE_ENV});
 
 const iconSizes = [16, 32, 48, 64];
 
