@@ -10,20 +10,10 @@ import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import devToolsEnhancer from "remote-redux-devtools";
 import initialState from "./initialState";
-
-/**
- * Module imports.
- */
-import noop from "./modules/noop";
-import sendMessageToTab from "./modules/sendMessageToTab";
-
-const modules = [
-    noop,
-    sendMessageToTab
-];
+import backgroundModules from "./backgroundModuleImports";
 
 const reducerBranches = (
-    modules.reduce((acc, val) => ({
+    backgroundModules.reduce((acc, val) => ({
         ...acc,
         ...({
             [val.messageType]: val.reducer
@@ -55,7 +45,7 @@ const store = createStore(
 );
 
 const messageListenerModuleExport = (
-    modules.reduce((acc, val) => ({
+    backgroundModules.reduce((acc, val) => ({
         ...acc,
         ...({
             [val.messageType]: val.messageListener({store})
