@@ -15,9 +15,11 @@ import initialState from "./initialState";
  * Module imports.
  */
 import noop from "./modules/noop";
+import sendMessageToTab from "./modules/sendMessageToTab";
 
 const modules = [
-    noop
+    noop,
+    sendMessageToTab
 ];
 
 const reducerBranches = (
