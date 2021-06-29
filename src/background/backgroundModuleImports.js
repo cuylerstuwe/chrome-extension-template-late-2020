@@ -4,8 +4,10 @@
 
 import noop from "./modules/noop";
 import sendMessageToTab from "./modules/sendMessageToTab";
+import sendAlert from "./modules/sendAlert";
 
 export default [
     noop,
-    sendMessageToTab
+    sendMessageToTab,
+    sendAlert
 ];

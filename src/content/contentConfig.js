@@ -1,4 +1,5 @@
 import noop from "./modules/common/noop";
+import sendMessageTypeToBackground from "./utils/sendMessageTypeToBackground";
 
 const commonModules = [
     noop
@@ -18,7 +19,7 @@ const urlMatchedPageConfigs = ([
 
         }),
         main: async () => {
-
+            await sendMessageTypeToBackground.sendAlert({message: "hello"});
         }
     }
 ]);
